@@ -263,6 +263,15 @@
 const MONTHS_SHORT = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const DAYS_SHORT   = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 
+function escapeHtml(value){
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
 function parseLocalDate(iso){
   // iso = "YYYY-MM-DD" -> local Date at midnight, avoiding UTC-shift bugs
   const [y,m,d] = iso.split("-").map(Number);
@@ -295,7 +304,7 @@ function teamLine(m){
   const away = m.away_team || "?";
   const homeCls = home.toLowerCase().includes("valur") ? "valur" : "";
   const awayCls = away.toLowerCase().includes("valur") ? "valur" : "";
-  return `<span class="${homeCls}">${home}</span> <span style="color:var(--muted);font-weight:400;">vs</span> <span class="${awayCls}">${away}</span>`;
+  return `<span class="${homeCls}">${escapeHtml(home)}</span> <span style="color:var(--muted);font-weight:400;">vs</span> <span class="${awayCls}">${escapeHtml(away)}</span>`;
 }
 
 function renderHero(nextMatch){
@@ -306,27 +315,39 @@ function renderHero(nextMatch){
   }
   const m = nextMatch;
   const rel = formatRelativeShort(m.date);
+  const safeLabel = escapeHtml(m.team_label || "");
+  const safeHome = escapeHtml(m.home_team || "?");
+  const safeAway = escapeHtml(m.away_team || "?");
+  const safeDate = escapeHtml(formatDateHeading(m.date));
+  const safeTime = escapeHtml(m.time || "");
+  const safeVenue = escapeHtml(m.venue || "");
+  const safeRel = escapeHtml(rel || "");
   return `<div class="hero">
-    <div class="eyebrow">Next match · ${m.team_label}</div>
+    <div class="eyebrow">Next match · ${safeLabel}</div>
     <div class="matchup">
-      ${m.home_team || "?"}
+      ${safeHome}
       <span class="vs">vs</span>
-      ${m.away_team || "?"}
+      ${safeAway}
     </div>
     <div class="meta">
-      <span class="badge">${formatDateHeading(m.date)}</span>
-      ${m.time ? `<span>⏱ ${m.time}</span>` : ""}
-      ${m.venue ? `<span>📍 ${m.venue}</span>` : ""}
+      <span class="badge">${safeDate}</span>
+      ${m.time ? `<span>⏱ ${safeTime}</span>` : ""}
+      ${m.venue ? `<span>📍 ${safeVenue}</span>` : ""}
     </div>
-    ${rel ? `<div class="countdown">${rel}</div>` : ""}
+    ${rel ? `<div class="countdown">${safeRel}</div>` : ""}
   </div>`;
 }
 
 function renderMatchCard(m){
   const finished = m.status === "finished";
+  const safeScore = escapeHtml(m.score || "");
+  const safeTime = escapeHtml(m.time || "");
+  const shortLabel = (m.team_label || "").replace("Valur U19 ", "");
+  const safeShortLabel = escapeHtml(shortLabel);
+  const safeVenue = escapeHtml(m.venue || "");
   const right = finished
-    ? `<span class="score">${m.score || ""}</span>`
-    : `<span class="time">${m.time || ""}</span>`;
+    ? `<span class="score">${safeScore}</span>`
+    : `<span class="time">${safeTime}</span>`;
   return `
     <div class="match-card ${finished ? "finished" : ""}">
       <div class="stripe"></div>
@@ -336,8 +357,8 @@ function renderMatchCard(m){
           ${right}
         </div>
         <div class="row2">
-          <span class="tag">${m.team_label.replace("Valur U19 ", "")} LIÐ</span>
-          ${m.venue ? `<span class="venue">${m.venue}</span>` : ""}
+          <span class="tag">${safeShortLabel} LIÐ</span>
+          ${m.venue ? `<span class="venue">${safeVenue}</span>` : ""}
         </div>
       </div>
     </div>`;
@@ -365,7 +386,7 @@ function render(data){
   for (const m of matches){
     const heading = m.date ? formatDateHeading(m.date) : "Date unknown";
     if (heading !== lastHeading){
-      html += `<div class="date-heading">${heading}</div>`;
+      html += `<div class="date-heading">${escapeHtml(heading)}</div>`;
       lastHeading = heading;
     }
     html += renderMatchCard(m);

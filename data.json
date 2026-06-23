@@ -1,29 +1,77 @@
 {
-  "generated_at": "2026-06-21T12:00:00+00:00",
+  "generated_at": "2026-06-23T21:39:34.125364+00:00",
   "matches": [
     {
       "team": "B",
       "team_label": "Valur U19 B",
-      "date": "2026-06-22",
-      "time": "18:00",
-      "status": "scheduled",
-      "score": null,
-      "home_team": "Breiðablik/Augnablik/Smári 3",
+      "date": "2026-06-08",
+      "time": null,
+      "status": "finished",
+      "score": "5-0",
+      "home_team": "Breiðablik/Augnablik/Smári 2",
       "away_team": "Valur/KH/Fálkar 2",
       "valur_is_home": false,
-      "venue": null
+      "venue": "Smárinn"
+    },
+    {
+      "team": "B",
+      "team_label": "Valur U19 B",
+      "date": "2026-06-11",
+      "time": null,
+      "status": "finished",
+      "score": "6-2",
+      "home_team": "Selfoss/Árborg/Ægir/Stokkseyri",
+      "away_team": "Valur/KH/Fálkar 2",
+      "valur_is_home": false,
+      "venue": "JÁVERK-völlurinn"
     },
     {
       "team": "A",
       "team_label": "Valur U19 A",
-      "date": "2026-06-24",
-      "time": "18:00",
-      "status": "scheduled",
-      "score": null,
-      "home_team": "Keflavík/Reynir/Hafnir",
+      "date": "2026-06-13",
+      "time": null,
+      "status": "finished",
+      "score": "3-4",
+      "home_team": "Valur/KH/Fálkar",
+      "away_team": "KA/Dalvík/KF/Hamrar",
+      "valur_is_home": true,
+      "venue": "Valsvöllur"
+    },
+    {
+      "team": "B",
+      "team_label": "Valur U19 B",
+      "date": "2026-06-16",
+      "time": null,
+      "status": "finished",
+      "score": "2-3",
+      "home_team": "Valur/KH/Fálkar 2",
+      "away_team": "ÍA/Kári/Skall/VíkingÓ 2",
+      "valur_is_home": true,
+      "venue": "Valsvöllur"
+    },
+    {
+      "team": "A",
+      "team_label": "Valur U19 A",
+      "date": "2026-06-20",
+      "time": null,
+      "status": "finished",
+      "score": "3-4",
+      "home_team": "Fylkir/Elliði",
       "away_team": "Valur/KH/Fálkar",
       "valur_is_home": false,
-      "venue": "Nettóhöllin - gervigras"
+      "venue": "Fylkisvöllur"
+    },
+    {
+      "team": "B",
+      "team_label": "Valur U19 B",
+      "date": "2026-06-22",
+      "time": null,
+      "status": "finished",
+      "score": "3-4",
+      "home_team": "Breiðablik/Augnablik/Smári 3",
+      "away_team": "Valur/KH/Fálkar 2",
+      "valur_is_home": false,
+      "venue": "Smárinn"
     },
     {
       "team": "B",
@@ -35,7 +83,7 @@
       "home_team": "Valur/KH/Fálkar 2",
       "away_team": "Afturelding/Hvíti/Álafoss",
       "valur_is_home": true,
-      "venue": null
+      "venue": "Valsvöllur"
     },
     {
       "team": "A",
@@ -60,6 +108,42 @@
       "away_team": "Valur/KH/Fálkar",
       "valur_is_home": false,
       "venue": "Kórinn"
+    },
+    {
+      "team": "B",
+      "team_label": "Valur U19 B",
+      "date": "2026-07-11",
+      "time": "14:00",
+      "status": "scheduled",
+      "score": null,
+      "home_team": "Austurland",
+      "away_team": "Valur/KH/Fálkar 2",
+      "valur_is_home": false,
+      "venue": "Rafey-völlurinn"
+    },
+    {
+      "team": "B",
+      "team_label": "Valur U19 B",
+      "date": "2026-07-15",
+      "time": "18:30",
+      "status": "scheduled",
+      "score": null,
+      "home_team": "HK/Ýmir 2",
+      "away_team": "Valur/KH/Fálkar 2",
+      "valur_is_home": false,
+      "venue": "Kórinn"
+    },
+    {
+      "team": "B",
+      "team_label": "Valur U19 B",
+      "date": "2026-07-19",
+      "time": "13:00",
+      "status": "scheduled",
+      "score": null,
+      "home_team": "Valur/KH/Fálkar 2",
+      "away_team": "Þór/THK/Völs/Magni 2",
+      "valur_is_home": true,
+      "venue": "Valsvöllur"
     },
     {
       "team": "A",

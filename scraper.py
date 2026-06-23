@@ -21,7 +21,7 @@ note what's around them."
 import json
 import re
 import sys
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 import requests
@@ -129,7 +129,7 @@ def build_url(comp_id, toggle=None, page=None):
     return url
 
 
-def parse_date(text, year):
+def parse_date(text, reference_date):
     m = DATE_RE.search(text.lower())
     if not m:
         return None
@@ -137,10 +137,16 @@ def parse_date(text, year):
     month = MONTHS.get(m.group(2)[:3])
     if not month:
         return None
-    try:
-        return f"{year:04d}-{month:02d}-{day:02d}"
-    except ValueError:
+    candidates = []
+    for y in (reference_date.year - 1, reference_date.year, reference_date.year + 1):
+        try:
+            candidates.append(date(y, month, day))
+        except ValueError:
+            continue
+    if not candidates:
         return None
+    best = min(candidates, key=lambda d: abs((d - reference_date).days))
+    return best.isoformat()
 
 
 def split_matchup(line):
@@ -175,13 +181,57 @@ def dedupe_repeated_name(s):
     return s
 
 
+def looks_like_matchup_line(line):
+    return bool(SCORE_RE.search(line) or MATCHUP_SPLIT_RE.search(line))
+
+
+def extract_match_from_line(comp, line, current_date, current_time, current_venue):
+    lower = line.lower()
+    if "valur" not in lower:
+        return None
+
+    score_match = SCORE_RE.search(line)
+    score = None
+    status = "scheduled"
+    if score_match:
+        score = f"{score_match.group(1)}-{score_match.group(2)}"
+        status = "finished"
+        team_a, team_b = split_matchup_with_score(line, score_match)
+    else:
+        team_a, team_b = split_matchup(line)
+
+    if not team_a or not team_b:
+        return None
+
+    team_a = dedupe_repeated_name(team_a)
+    team_b = dedupe_repeated_name(team_b)
+
+    return {
+        "team": comp["team"],
+        "team_label": comp["label"],
+        "date": current_date,
+        "time": current_time if not score else None,
+        "status": status,
+        "score": score,
+        "home_team": team_a,
+        "away_team": team_b,
+        "valur_is_home": "valur" in team_a.lower(),
+        "venue": current_venue,
+    }
+
+
 def fetch(url):
     r = requests.get(url, headers=HEADERS, timeout=25)
     r.raise_for_status()
-    return r.text
+    # Return raw bytes rather than r.text -- requests sometimes guesses the
+    # wrong charset when the server doesn't send an explicit Content-Type
+    # charset, producing mojibake (e.g. "jÃºnÃ­" instead of "júní"). Passing
+    # bytes lets BeautifulSoup detect encoding from the page's own
+    # <meta charset> tag instead, which is far more reliable here.
+    return r.content
 
 
-def scrape_variant(comp, toggle, page, year):
+def scrape_variant(comp, toggle, page, reference_date):
     url = build_url(comp["id"], toggle=toggle, page=page)
     try:
         html = fetch(url)
@@ -200,13 +250,15 @@ def scrape_variant(comp, toggle, page, year):
     current_date = None
     current_time = None
     current_venue = None
+    pending_team = None
+    pending_score = None
     # state machine tracking where we are relative to the most recent
     # "datetime" line, since venue/competition-name/matchup lines can't be
     # reliably told apart by content alone (venues can contain ' - ' too)
     state = "idle"  # idle -> expect_venue -> expect_matchup
 
     for line in lines:
-        date_found = parse_date(line, year)
+        date_found = parse_date(line, reference_date)
         time_found = TIME_RE.search(line)
         lower = line.lower()
         is_comp_name_line = lower.startswith("íslandsmót") or lower.startswith("islandsmot")
@@ -215,78 +267,97 @@ def scrape_variant(comp, toggle, page, year):
             current_date = date_found
             current_time = time_found.group(1)
             current_venue = None
+            pending_team = None
+            pending_score = None
             state = "expect_venue"
             continue
 
         if date_found and not time_found:
             current_date = date_found
+            pending_team = None
+            pending_score = None
             state = "idle"
             continue
 
         if state == "expect_venue":
+            if is_comp_name_line:
+                continue
+            if looks_like_matchup_line(line):
+                state = "idle"
+                match = extract_match_from_line(comp, line, current_date, current_time, current_venue)
+                if match:
+                    matches.append(match)
+                continue
             current_venue = line
+            pending_team = None
+            pending_score = None
             state = "expect_matchup"
             continue
 
         if state == "expect_matchup":
             if is_comp_name_line:
                 continue  # keep waiting, this is the competition-name link
-            # this line is the matchup line, whether or not it mentions Valur
-            state = "idle"
-            if "valur" not in lower:
+            # Matchups can appear either in one line ("Team A - Team B") or
+            # as three lines ("Team A", "-", "Team B").
+            if line == "-":
                 continue
 
-            score_match = SCORE_RE.search(line)
-            score = None
-            status = "scheduled"
-            if score_match:
-                score = f"{score_match.group(1)}-{score_match.group(2)}"
-                status = "finished"
-                team_a, team_b = split_matchup_with_score(line, score_match)
-            else:
-                team_a, team_b = split_matchup(line)
-
-            if not team_a or not team_b:
+            if pending_team and not pending_score and SCORE_RE.fullmatch(line.strip()):
+                pending_score = line.strip()
                 continue
 
-            team_a = dedupe_repeated_name(team_a)
-            team_b = dedupe_repeated_name(team_b)
+            if pending_team:
+                if pending_score:
+                    combined = f"{pending_team} {pending_score} {line}"
+                else:
+                    combined = f"{pending_team} - {line}"
+                pending_team = None
+                pending_score = None
+                state = "idle"
+                match = extract_match_from_line(comp, combined, current_date, current_time, current_venue)
+                if match:
+                    matches.append(match)
+                continue
 
-            matches.append({
-                "team": comp["team"],
-                "team_label": comp["label"],
-                "date": current_date,
-                "time": current_time if not score else None,
-                "status": status,
-                "score": score,
-                "home_team": team_a,
-                "away_team": team_b,
-                "valur_is_home": "valur" in team_a.lower(),
-                "venue": current_venue,
-            })
+            if looks_like_matchup_line(line):
+                state = "idle"
+                match = extract_match_from_line(comp, line, current_date, current_time, current_venue)
+                if match:
+                    matches.append(match)
+                continue
+
+            pending_team = line
+            pending_score = None
+            continue
 
     return matches
 
 
-def scrape_competition(comp):
-    year = datetime.now(timezone.utc).year
+def scrape_competition(comp, reference_date):
     all_matches = []
     for variant in PAGE_VARIANTS:
-        found = scrape_variant(comp, variant["toggle"], variant["page"], year)
+        found = scrape_variant(comp, variant["toggle"], variant["page"], reference_date)
         all_matches.extend(found)
     return all_matches
 
 
 def dedupe(matches):
-    seen = set()
-    out = []
+    by_key = {}
+
+    def quality(m):
+        return (
+            2 if m.get("score") else 0,
+            1 if m.get("time") else 0,
+            1 if m.get("venue") else 0,
+            1 if m.get("status") == "finished" else 0,
+        )
+
     for m in matches:
         key = (m.get("team"), m.get("date"), m.get("home_team"), m.get("away_team"))
-        if key in seen:
-            continue
-        seen.add(key)
-        out.append(m)
-    return out
+        existing = by_key.get(key)
+        if existing is None or quality(m) > quality(existing):
+            by_key[key] = m
+    return list(by_key.values())
 
 
 def within_window(m, today):
@@ -304,7 +375,7 @@ def main():
     today = datetime.now(timezone.utc).date()
     all_matches = []
     for comp in COMPETITIONS:
-        comp_matches = scrape_competition(comp)
+        comp_matches = scrape_competition(comp, today)
         print(f"[info] {comp['label']}: found {len(comp_matches)} raw match mentions")
         all_matches.extend(comp_matches)
 
@@ -317,9 +388,9 @@ def main():
         "matches": all_matches,
     }
 
-    if not all_matches and OUTPUT_PATH.exists():
-        print("[warn] no matches found this run -- keeping previous data.json", file=sys.stderr)
-        return
+    if not all_matches:
+        print("[warn] no matches found this run", file=sys.stderr)
+        payload["warnings"] = ["No matches were found in this scrape run."]
 
     OUTPUT_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"[info] wrote {len(all_matches)} matches to {OUTPUT_PATH}")
