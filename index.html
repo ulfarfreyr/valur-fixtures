@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Valur U19</title>
+<title>Valur Youth Fixtures</title>
 
 <!-- iOS "Add to Home Screen" support -->
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<meta name="apple-mobile-web-app-title" content="Valur U19" />
+<meta name="apple-mobile-web-app-title" content="Valur Youth" />
 <meta name="theme-color" content="#161312" />
 <link rel="apple-touch-icon" href="icon.png" />
 <link rel="manifest" href="manifest.json" />
@@ -28,6 +28,9 @@
     --muted:#8A8378;
     --line: rgba(22,19,18,0.10);
     --radius: 14px;
+    --profile-accent:#C8112E;
+    --profile-accent-dark:#8C0B22;
+    --profile-accent-soft:#F7D9DE;
   }
 
   *{ box-sizing:border-box; }
@@ -54,14 +57,14 @@
     color:var(--paper);
     padding: max(14px, env(safe-area-inset-top)) 18px 14px 18px;
     display:flex; align-items:center; justify-content:space-between;
-    border-bottom: 3px solid var(--red);
+    border-bottom: 3px solid var(--profile-accent);
   }
   header.top .brand{
     display:flex; align-items:center; gap:10px;
   }
   header.top .crest{
     width:28px; height:28px; border-radius:6px;
-    background:var(--red);
+    background:var(--profile-accent);
     display:flex; align-items:center; justify-content:center;
     font-family:"Oswald",sans-serif; font-weight:700; color:#fff; font-size:15px;
   }
@@ -80,9 +83,128 @@
 
   main{ max-width:560px; margin:0 auto; padding:18px 16px 8px; }
 
+  .tabs{
+    display:flex;
+    gap:8px;
+    margin-bottom:14px;
+  }
+  .tab-btn{
+    flex:1;
+    border:1px solid var(--line);
+    background:#fff;
+    color:var(--ink);
+    border-radius:10px;
+    padding:10px 12px;
+    font-family:"Oswald",sans-serif;
+    font-size:13px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    cursor:pointer;
+  }
+  .tab-btn.active{
+    background:var(--profile-accent);
+    color:var(--paper);
+    border-color:var(--profile-accent);
+  }
+
+  .calendar-wrap{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:12px;
+  }
+  .calendar-legend{
+    display:flex;
+    gap:14px;
+    margin:2px 2px 10px;
+    flex-wrap:wrap;
+    font-size:12px;
+    color:var(--muted);
+  }
+  .legend-item{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-weight:600;
+  }
+  .legend-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    display:inline-block;
+  }
+  .calendar-grid{
+    display:grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap:8px;
+  }
+  .weekday{
+    font-family:"Oswald",sans-serif;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--muted);
+    padding:0 2px;
+  }
+  .day-cell{
+    border:1px solid var(--line);
+    border-radius:10px;
+    min-height:108px;
+    padding:7px;
+    background:#fff;
+  }
+  .day-cell.outside-range{
+    background:#FAF8F3;
+    opacity:0.65;
+  }
+  .day-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:6px;
+  }
+  .day-num{
+    font-family:"Oswald",sans-serif;
+    font-size:15px;
+    color:var(--ink);
+  }
+  .day-month{
+    font-size:10px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+  .day-matches{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+  }
+  .match-chip{
+    font-size:11px;
+    line-height:1.25;
+    border-radius:7px;
+    padding:5px 6px;
+    border:1px solid var(--line);
+    background:#fff;
+  }
+  .match-chip .time{
+    font-family:"Oswald",sans-serif;
+    font-weight:600;
+    margin-right:5px;
+  }
+
+  @media (max-width:700px){
+    .calendar-grid{
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .weekday{
+      display:none;
+    }
+  }
+
   /* ---------- hero "next match" card ---------- */
   .hero{
-    background: linear-gradient(155deg, var(--red) 0%, var(--red-dark) 100%);
+    background: linear-gradient(155deg, var(--profile-accent) 0%, var(--profile-accent-dark) 100%);
     color:#fff;
     border-radius: var(--radius);
     padding:20px 20px 18px;
@@ -175,7 +297,7 @@
   }
   .match-card .stripe{
     width:4px; align-self:stretch; border-radius:3px;
-    background:var(--red);
+    background:var(--profile-accent);
     flex-shrink:0;
   }
   .match-card.finished .stripe{ background:var(--muted); opacity:0.5; }
@@ -190,7 +312,7 @@
     font-weight:600;
     line-height:1.35;
   }
-  .match-card .teams .valur{ color:var(--red-dark); }
+  .match-card .teams .valur{ color:var(--profile-accent-dark); }
   .match-card .score{
     font-family:"Oswald",sans-serif;
     font-size:16px; font-weight:700;
@@ -208,8 +330,8 @@
     font-size:10px; font-weight:700;
     font-family:"Oswald",sans-serif;
     letter-spacing:0.04em;
-    background:var(--paper-dim);
-    color:var(--ink);
+    background:var(--profile-accent-soft);
+    color:var(--profile-accent-dark);
     border-radius:5px;
     padding:2px 6px;
   }
@@ -248,20 +370,50 @@
 <header class="top">
   <div class="brand">
     <div class="crest">V</div>
-    <h1>Valur U19</h1>
+    <h1 id="titleLabel">Valur Youth</h1>
   </div>
   <div class="updated" id="updatedLabel">—</div>
 </header>
 
-<main id="app">
-  <div class="state"><h2>Loading…</h2><p>Fetching the latest fixtures.</p></div>
+<main>
+  <div class="tabs" id="tabs"></div>
+  <div id="app">
+    <div class="state"><h2>Loading…</h2><p>Fetching the latest fixtures.</p></div>
+  </div>
 </main>
 
-<footer class="note">Data from ksi.is · A &amp; B team fixtures, combined</footer>
+<footer class="note">Data from ksi.is · Jon (U19 A+B) and Stefan (U16 A+B)</footer>
 
 <script>
 const MONTHS_SHORT = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const DAYS_SHORT   = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+const DAYS_MONDAY_FIRST = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const PROFILES = [
+  {
+    id: "jon",
+    label: "Jon",
+    ageGroup: "U19",
+    colors: {
+      accent: "#C8112E",
+      accentDark: "#8C0B22",
+      accentSoft: "#F7D9DE"
+    }
+  },
+  {
+    id: "stefan",
+    label: "Stefan",
+    ageGroup: "U16",
+    colors: {
+      accent: "#0D6E6E",
+      accentDark: "#084B4B",
+      accentSoft: "#D9F0EF"
+    }
+  }
+];
+const CALENDAR_TAB = { id: "calendar", label: "Calendar" };
+
+let activeTab = "jon";
+let latestData = null;
 
 function escapeHtml(value){
   return String(value ?? "")
@@ -342,7 +494,7 @@ function renderMatchCard(m){
   const finished = m.status === "finished";
   const safeScore = escapeHtml(m.score || "");
   const safeTime = escapeHtml(m.time || "");
-  const shortLabel = (m.team_label || "").replace("Valur U19 ", "");
+  const shortLabel = m.team || "?";
   const safeShortLabel = escapeHtml(shortLabel);
   const safeVenue = escapeHtml(m.venue || "");
   const right = finished
@@ -364,9 +516,178 @@ function renderMatchCard(m){
     </div>`;
 }
 
-function render(data){
+function profileFromMatch(m){
+  return (m.profile || "jon").toLowerCase();
+}
+
+function profileMeta(profileId){
+  return PROFILES.find(p => p.id === profileId) || PROFILES[0];
+}
+
+function currentProfileMeta(){
+  return profileMeta(activeTab);
+}
+
+function isCalendarTab(){
+  return activeTab === CALENDAR_TAB.id;
+}
+
+function setTitle(){
+  const titleEl = document.getElementById("titleLabel");
+  if (isCalendarTab()){
+    titleEl.textContent = "Calendar · Next 4 Weeks";
+    return;
+  }
+  const p = currentProfileMeta();
+  titleEl.textContent = `${p.label} · ${p.ageGroup}`;
+}
+
+function applyProfileTheme(){
+  const root = document.documentElement;
+  if (isCalendarTab()){
+    root.style.setProperty("--profile-accent", "#161312");
+    root.style.setProperty("--profile-accent-dark", "#0D0C0B");
+    root.style.setProperty("--profile-accent-soft", "#EDE7DB");
+    return;
+  }
+  const p = currentProfileMeta();
+  root.style.setProperty("--profile-accent", p.colors.accent);
+  root.style.setProperty("--profile-accent-dark", p.colors.accentDark);
+  root.style.setProperty("--profile-accent-soft", p.colors.accentSoft);
+}
+
+function renderTabs(){
+  const tabsEl = document.getElementById("tabs");
+  const tabs = [
+    ...PROFILES.map(p => ({ id: p.id, label: `${p.label} · ${p.ageGroup}` })),
+    CALENDAR_TAB,
+  ];
+  tabsEl.innerHTML = tabs.map(t => {
+    const isActive = t.id === activeTab;
+    return `<button class="tab-btn ${isActive ? "active" : ""}" data-tab="${t.id}">${escapeHtml(t.label)}</button>`;
+  }).join("");
+  for (const btn of tabsEl.querySelectorAll(".tab-btn")){
+    btn.addEventListener("click", () => {
+      activeTab = btn.dataset.tab;
+      renderLatest();
+    });
+  }
+}
+
+function startOfWeekMonday(d){
+  const out = new Date(d);
+  out.setHours(0,0,0,0);
+  const mondayIndex = (out.getDay() + 6) % 7;
+  out.setDate(out.getDate() - mondayIndex);
+  return out;
+}
+
+function endOfWeekSunday(d){
+  const out = new Date(d);
+  out.setHours(0,0,0,0);
+  const mondayIndex = (out.getDay() + 6) % 7;
+  out.setDate(out.getDate() + (6 - mondayIndex));
+  return out;
+}
+
+function dateKey(d){
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
+function matchDisplayText(m){
+  const time = escapeHtml(m.time || "--:--");
+  const label = `${m.age_group || ""} ${m.team || ""}`.trim();
+  const side = m.valur_is_home ? "Home" : "Away";
+  return `<span class="time">${time}</span>${escapeHtml(label)} · ${escapeHtml(side)}`;
+}
+
+function renderCalendar(matches){
   const app = document.getElementById("app");
-  const matches = (data.matches || []).slice();
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  const endWindow = new Date(today);
+  endWindow.setDate(endWindow.getDate() + 27);
+
+  const upcoming = matches
+    .filter(m => m.date && parseLocalDate(m.date) >= today && parseLocalDate(m.date) <= endWindow && m.status !== "finished")
+    .sort((a,b) => {
+      const aKey = `${a.date || ""} ${a.time || "99:99"}`;
+      const bKey = `${b.date || ""} ${b.time || "99:99"}`;
+      return aKey.localeCompare(bKey);
+    });
+
+  if (upcoming.length === 0){
+    app.innerHTML = `<div class="state">
+      <h2>No upcoming games</h2>
+      <p>No scheduled fixtures were found in the next four weeks.</p>
+    </div>`;
+    return;
+  }
+
+  const byDate = new Map();
+  for (const m of upcoming){
+    if (!byDate.has(m.date)){
+      byDate.set(m.date, []);
+    }
+    byDate.get(m.date).push(m);
+  }
+
+  const startGrid = startOfWeekMonday(today);
+  const endGrid = endOfWeekSunday(endWindow);
+  const legend = PROFILES.map(p =>
+    `<span class="legend-item"><span class="legend-dot" style="background:${escapeHtml(p.colors.accent)}"></span>${escapeHtml(p.label)}</span>`
+  ).join("");
+
+  let html = `<div class="calendar-wrap"><div class="calendar-legend">${legend}</div><div class="calendar-grid">`;
+  for (const wd of DAYS_MONDAY_FIRST){
+    html += `<div class="weekday">${escapeHtml(wd)}</div>`;
+  }
+
+  for (let d = new Date(startGrid); d <= endGrid; d.setDate(d.getDate() + 1)){
+    const inRange = d >= today && d <= endWindow;
+    const key = dateKey(d);
+    const dayMatches = byDate.get(key) || [];
+    const chips = dayMatches.map(m => {
+      const p = profileMeta(profileFromMatch(m));
+      return `<div class="match-chip" style="border-left:4px solid ${escapeHtml(p.colors.accent)}">${matchDisplayText(m)}</div>`;
+    }).join("");
+
+    html += `<div class="day-cell ${inRange ? "" : "outside-range"}">
+      <div class="day-head">
+        <span class="day-num">${d.getDate()}</span>
+        <span class="day-month">${escapeHtml(MONTHS_SHORT[d.getMonth()])}</span>
+      </div>
+      <div class="day-matches">${chips}</div>
+    </div>`;
+  }
+
+  html += `</div></div>`;
+  app.innerHTML = html;
+}
+
+function renderLatest(){
+  if (!latestData){
+    return;
+  }
+  render(latestData);
+}
+
+function render(data){
+  latestData = data;
+  applyProfileTheme();
+  renderTabs();
+  setTitle();
+
+  if (isCalendarTab()){
+    renderCalendar(data.matches || []);
+    return;
+  }
+
+  const app = document.getElementById("app");
+  const matches = (data.matches || []).filter(m => profileFromMatch(m) === activeTab);
 
   if (matches.length === 0){
     app.innerHTML = `<div class="state">

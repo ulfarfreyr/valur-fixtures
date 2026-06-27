@@ -1,8 +1,14 @@
-# Valur U19 Fixtures — Setup Guide
+# Valur Youth Fixtures — Setup Guide
 
 A tiny "app" that shows upcoming (and recently played) matches for Valur's
-U19 A and B teams, pulled daily from ksi.is. No coding needed to set this
-up — just clicking through a few screens on GitHub's website.
+teams, pulled daily from ksi.is, with separate tabs for each son:
+
+- **Jon tab:** U19 A + U19 B
+- **Stefan tab:** U16 A + U16 B
+- **Calendar tab:** next four weeks, calendar layout with both players color-coded
+
+No coding needed to set this up — just clicking through a few screens on
+GitHub's website.
 
 It works like this: a small script runs automatically once a day, reads
 the two ksi.is pages, and updates a page that you keep on your iPhone's
@@ -77,7 +83,7 @@ You should have a folder of files I gave you, including a hidden
    Safari, not Chrome — only Safari supports this).
 2. Tap the **Share** icon (square with an arrow).
 3. Tap **Add to Home Screen**.
-4. Give it a name (e.g. "Valur U19") and tap **Add**.
+4. Give it a name (e.g. "Valur Youth") and tap **Add**.
 
 You now have an app icon that opens straight to the fixtures, refreshed
 once a day automatically.
@@ -97,7 +103,11 @@ a match looks wrong:
 
 ## What this does and doesn't cover
 
-- Shows upcoming fixtures for both A and B teams, combined into one list.
+- Shows fixtures in two tabs:
+   - Jon: U19 A and B
+   - Stefan: U16 A and B
+- Includes a third Calendar tab with upcoming fixtures (next 4 weeks),
+   showing match time inside each day and color markers per player.
 - Shows recent results with scores **when ksi.is's page structure makes
   that information available** in the same view as upcoming fixtures —
   this part is the least tested piece since I can't fully verify it

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Scrapes upcoming (and recently played) matches for Valur's U19 A and B teams
-from ksi.is and writes them to data.json for the front-end page to display.
+Scrapes upcoming (and recently played) matches for Valur youth teams from
+ksi.is and writes them to data.json for the front-end page to display.
 
 APPROACH
 --------
@@ -73,18 +73,40 @@ def block_aware_lines(root):
     return lines
 
 # ---------------------------------------------------------------------------
-# Configuration: the two competition pages to scrape
+# Configuration: competition pages to scrape
 # ---------------------------------------------------------------------------
 COMPETITIONS = [
     {
+        "profile": "jon",
+        "profile_label": "Jon",
+        "age_group": "U19",
         "team": "A",
         "label": "Valur U19 A",
         "id": "7015358",
     },
     {
+        "profile": "jon",
+        "profile_label": "Jon",
+        "age_group": "U19",
         "team": "B",
         "label": "Valur U19 B",
         "id": "7017555",
+    },
+    {
+        "profile": "stefan",
+        "profile_label": "Stefan",
+        "age_group": "U16",
+        "team": "A",
+        "label": "Valur U16 A",
+        "id": "7019110",
+    },
+    {
+        "profile": "stefan",
+        "profile_label": "Stefan",
+        "age_group": "U16",
+        "team": "B",
+        "label": "Valur U16 B",
+        "id": "7090279",
     },
 ]
 
@@ -185,6 +207,10 @@ def looks_like_matchup_line(line):
     return bool(SCORE_RE.search(line) or MATCHUP_SPLIT_RE.search(line))
 
 
+def is_unconfirmed_marker_line(lower):
+    return lower == "óstaðfest" or lower.startswith("óstaðfest ") or lower == "ostadfest"
+
+
 def extract_match_from_line(comp, line, current_date, current_time, current_venue):
     lower = line.lower()
     if "valur" not in lower:
@@ -207,6 +233,10 @@ def extract_match_from_line(comp, line, current_date, current_time, current_venu
     team_b = dedupe_repeated_name(team_b)
 
     return {
+        "profile": comp["profile"],
+        "profile_label": comp["profile_label"],
+        "age_group": comp["age_group"],
+        "competition_id": comp["id"],
         "team": comp["team"],
         "team_label": comp["label"],
         "date": current_date,
@@ -262,6 +292,7 @@ def scrape_variant(comp, toggle, page, reference_date):
         time_found = TIME_RE.search(line)
         lower = line.lower()
         is_comp_name_line = lower.startswith("íslandsmót") or lower.startswith("islandsmot")
+        is_unconfirmed_line = is_unconfirmed_marker_line(lower)
 
         if date_found and time_found:
             current_date = date_found
@@ -277,6 +308,9 @@ def scrape_variant(comp, toggle, page, reference_date):
             pending_team = None
             pending_score = None
             state = "idle"
+            continue
+
+        if is_unconfirmed_line:
             continue
 
         if state == "expect_venue":
@@ -353,7 +387,14 @@ def dedupe(matches):
         )
 
     for m in matches:
-        key = (m.get("team"), m.get("date"), m.get("home_team"), m.get("away_team"))
+        key = (
+            m.get("profile"),
+            m.get("age_group"),
+            m.get("team"),
+            m.get("date"),
+            m.get("home_team"),
+            m.get("away_team"),
+        )
         existing = by_key.get(key)
         if existing is None or quality(m) > quality(existing):
             by_key[key] = m
