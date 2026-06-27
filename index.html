@@ -195,10 +195,27 @@
 
   @media (max-width:700px){
     .calendar-grid{
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
     }
     .weekday{
       display:none;
+    }
+    .day-cell{
+      min-height:0;
+      display:grid;
+      grid-template-columns: 56px 1fr;
+      gap:8px;
+      align-items:start;
+    }
+    .day-head{
+      margin-bottom:0;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:2px;
+    }
+    .day-num{
+      line-height:1;
     }
   }
 
