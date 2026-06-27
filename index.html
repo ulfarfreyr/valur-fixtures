@@ -227,6 +227,9 @@
     .day-weekday{
       display:block;
     }
+    .day-cell.past-day{
+      display:none;
+    }
   }
 
   /* ---------- hero "next match" card ---------- */
@@ -675,6 +678,7 @@ function renderCalendar(matches){
 
   for (let d = new Date(startGrid); d <= endGrid; d.setDate(d.getDate() + 1)){
     const inRange = d >= today && d <= endWindow;
+    const isPast = d < today;
     const key = dateKey(d);
     const dayMatches = byDate.get(key) || [];
     const chips = dayMatches.map(m => {
@@ -682,7 +686,7 @@ function renderCalendar(matches){
       return `<div class="match-chip" style="border-left:4px solid ${escapeHtml(p.colors.accent)}">${matchDisplayText(m)}</div>`;
     }).join("");
 
-    html += `<div class="day-cell ${inRange ? "" : "outside-range"}">
+    html += `<div class="day-cell ${inRange ? "" : "outside-range"} ${isPast ? "past-day" : ""}">
       <div class="day-head">
         <span class="day-weekday">${escapeHtml(DAYS_SHORT[d.getDay()])}</span>
         <span class="day-num">${d.getDate()}</span>
