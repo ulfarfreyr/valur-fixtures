@@ -1,22 +1,6 @@
 {
-  "generated_at": "2026-06-29T10:54:14.720573+00:00",
+  "generated_at": "2026-06-30T09:31:06.971706+00:00",
   "matches": [
-    {
-      "profile": "jon",
-      "profile_label": "Jon",
-      "age_group": "U19",
-      "competition_id": "7017555",
-      "team": "B",
-      "team_label": "Valur U19 B",
-      "date": "2026-06-08",
-      "time": null,
-      "status": "finished",
-      "score": "5-0",
-      "home_team": "Breiðablik/Augnablik/Smári 2",
-      "away_team": "Valur/KH/Fálkar 2",
-      "valur_is_home": false,
-      "venue": "Smárinn"
-    },
     {
       "profile": "jon",
       "profile_label": "Jon",
@@ -194,22 +178,6 @@
       "venue": "Valsvöllur"
     },
     {
-      "profile": "stefan",
-      "profile_label": "Stefan",
-      "age_group": "U16",
-      "competition_id": "7019110",
-      "team": "A",
-      "team_label": "Valur U16 A",
-      "date": "2026-06-29",
-      "time": "17:00",
-      "status": "scheduled",
-      "score": null,
-      "home_team": "KA/KF/Dalvík",
-      "away_team": "Valur/KH/Fálkar",
-      "valur_is_home": false,
-      "venue": "Greifavöllurinn"
-    },
-    {
       "profile": "jon",
       "profile_label": "Jon",
       "age_group": "U19",
@@ -217,13 +185,29 @@
       "team": "A",
       "team_label": "Valur U19 A",
       "date": "2026-06-29",
-      "time": "19:15",
-      "status": "scheduled",
-      "score": null,
+      "time": null,
+      "status": "finished",
+      "score": "1-3",
       "home_team": "Valur/KH/Fálkar",
       "away_team": "Þróttur/SR/Hamar",
       "valur_is_home": true,
       "venue": "Valsvöllur"
+    },
+    {
+      "profile": "stefan",
+      "profile_label": "Stefan",
+      "age_group": "U16",
+      "competition_id": "7019110",
+      "team": "A",
+      "team_label": "Valur U16 A",
+      "date": "2026-06-29",
+      "time": null,
+      "status": "finished",
+      "score": "7-0",
+      "home_team": "KA/KF/Dalvík",
+      "away_team": "Valur/KH/Fálkar",
+      "valur_is_home": false,
+      "venue": "Greifavöllurinn"
     },
     {
       "profile": "stefan",
