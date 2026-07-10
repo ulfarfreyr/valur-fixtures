@@ -1,22 +1,6 @@
 {
-  "generated_at": "2026-07-09T09:35:34.539401+00:00",
+  "generated_at": "2026-07-10T09:31:19.931130+00:00",
   "matches": [
-    {
-      "profile": "stefan",
-      "profile_label": "Stefan",
-      "age_group": "U16",
-      "competition_id": "7090279",
-      "team": "B",
-      "team_label": "Valur U16 B",
-      "date": "2026-06-18",
-      "time": null,
-      "status": "finished",
-      "score": "2-3",
-      "home_team": "Valur/KH/Fálkar",
-      "away_team": "Breiðablik/Augnablik",
-      "valur_is_home": true,
-      "venue": "Valsvöllur"
-    },
     {
       "profile": "jon",
       "profile_label": "Jon",
