@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T09:31:19.931130+00:00",
+  "generated_at": "2026-07-11T07:51:58.643549+00:00",
   "matches": [
     {
       "profile": "jon",
@@ -153,9 +153,9 @@
       "team": "A",
       "team_label": "Valur U19 A",
       "date": "2026-07-10",
-      "time": "18:30",
-      "status": "scheduled",
-      "score": null,
+      "time": null,
+      "status": "finished",
+      "score": "2-0",
       "home_team": "HK/Ýmir",
       "away_team": "Valur/KH/Fálkar",
       "valur_is_home": false,
