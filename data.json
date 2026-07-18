@@ -1,22 +1,6 @@
 {
-  "generated_at": "2026-07-17T08:06:23.063868+00:00",
+  "generated_at": "2026-07-18T07:45:59.160093+00:00",
   "matches": [
-    {
-      "profile": "stefan",
-      "profile_label": "Stefan",
-      "age_group": "U16",
-      "competition_id": "7090279",
-      "team": "B",
-      "team_label": "Valur U16 B",
-      "date": "2026-06-26",
-      "time": null,
-      "status": "finished",
-      "score": "5-3",
-      "home_team": "Valur/KH/Fálkar",
-      "away_team": "Stjarnan/KFG",
-      "valur_is_home": true,
-      "venue": "Valsvöllur"
-    },
     {
       "profile": "jon",
       "profile_label": "Jon",
