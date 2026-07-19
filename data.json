@@ -1,22 +1,6 @@
 {
-  "generated_at": "2026-07-18T07:45:59.160093+00:00",
+  "generated_at": "2026-07-19T08:12:40.210852+00:00",
   "matches": [
-    {
-      "profile": "jon",
-      "profile_label": "Jon",
-      "age_group": "U19",
-      "competition_id": "7017555",
-      "team": "B",
-      "team_label": "Valur U19 B",
-      "date": "2026-06-27",
-      "time": null,
-      "status": "finished",
-      "score": "1-1",
-      "home_team": "Valur/KH/Fálkar 2",
-      "away_team": "Afturelding/Hvíti/Álafoss",
-      "valur_is_home": true,
-      "venue": "Valsvöllur"
-    },
     {
       "profile": "jon",
       "profile_label": "Jon",
@@ -137,7 +121,7 @@
       "team": "B",
       "team_label": "Valur U19 B",
       "date": "2026-07-19",
-      "time": "13:00",
+      "time": "14:00",
       "status": "scheduled",
       "score": null,
       "home_team": "Valur/KH/Fálkar 2",
@@ -152,8 +136,8 @@
       "competition_id": "7015358",
       "team": "A",
       "team_label": "Valur U19 A",
-      "date": "2026-07-22",
-      "time": "18:00",
+      "date": "2026-07-21",
+      "time": "19:00",
       "status": "scheduled",
       "score": null,
       "home_team": "Valur/KH/Fálkar",
