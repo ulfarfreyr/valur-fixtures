@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T08:12:40.210852+00:00",
+  "generated_at": "2026-07-20T08:54:04.749788+00:00",
   "matches": [
     {
       "profile": "jon",
@@ -121,9 +121,9 @@
       "team": "B",
       "team_label": "Valur U19 B",
       "date": "2026-07-19",
-      "time": "14:00",
-      "status": "scheduled",
-      "score": null,
+      "time": null,
+      "status": "finished",
+      "score": "10-4",
       "home_team": "Valur/KH/Fálkar 2",
       "away_team": "Þór/THK/Völs/Magni 2",
       "valur_is_home": true,
@@ -137,7 +137,7 @@
       "team": "A",
       "team_label": "Valur U19 A",
       "date": "2026-07-21",
-      "time": "19:00",
+      "time": "18:00",
       "status": "scheduled",
       "score": null,
       "home_team": "Valur/KH/Fálkar",
