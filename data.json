@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T08:24:40.065617+00:00",
+  "generated_at": "2026-07-22T08:25:00.448866+00:00",
   "matches": [
     {
       "profile": "stefan",
@@ -105,9 +105,9 @@
       "team": "A",
       "team_label": "Valur U19 A",
       "date": "2026-07-21",
-      "time": "18:00",
-      "status": "scheduled",
-      "score": null,
+      "time": null,
+      "status": "finished",
+      "score": "1-4",
       "home_team": "Valur/KH/Fálkar",
       "away_team": "Breiðablik/Augnablik/Smári",
       "valur_is_home": true,
