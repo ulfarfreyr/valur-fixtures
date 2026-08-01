@@ -1,22 +1,6 @@
 {
-  "generated_at": "2026-07-31T08:46:31.659568+00:00",
+  "generated_at": "2026-08-01T08:16:19.730432+00:00",
   "matches": [
-    {
-      "profile": "jon",
-      "profile_label": "Jon",
-      "age_group": "U19",
-      "competition_id": "7015358",
-      "team": "A",
-      "team_label": "Valur U19 A",
-      "date": "2026-07-10",
-      "time": null,
-      "status": "finished",
-      "score": "2-0",
-      "home_team": "HK/Ýmir",
-      "away_team": "Valur/KH/Fálkar",
-      "valur_is_home": false,
-      "venue": "Kórinn"
-    },
     {
       "profile": "jon",
       "profile_label": "Jon",
