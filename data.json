@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T07:27:20.272374+00:00",
+  "generated_at": "2026-08-11T07:02:36.797623+00:00",
   "matches": [
     {
       "profile": "jon",
@@ -25,9 +25,9 @@
       "team": "B",
       "team_label": "Valur U16 B",
       "date": "2026-08-10",
-      "time": "17:00",
-      "status": "scheduled",
-      "score": null,
+      "time": null,
+      "status": "finished",
+      "score": "4-1",
       "home_team": "Valur/KH/Fálkar",
       "away_team": "KR",
       "valur_is_home": true,
