@@ -1,22 +1,6 @@
 {
-  "generated_at": "2026-08-11T07:02:36.797623+00:00",
+  "generated_at": "2026-08-12T07:20:35.329491+00:00",
   "matches": [
-    {
-      "profile": "jon",
-      "profile_label": "Jon",
-      "age_group": "U19",
-      "competition_id": "7015358",
-      "team": "A",
-      "team_label": "Valur U19 A",
-      "date": "2026-07-21",
-      "time": null,
-      "status": "finished",
-      "score": "1-4",
-      "home_team": "Valur/KH/Fálkar",
-      "away_team": "Breiðablik/Augnablik/Smári",
-      "valur_is_home": true,
-      "venue": "Valsvöllur"
-    },
     {
       "profile": "stefan",
       "profile_label": "Stefan",
