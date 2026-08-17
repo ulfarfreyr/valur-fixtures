@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T06:35:14.207274+00:00",
+  "generated_at": "2026-08-17T06:49:17.345706+00:00",
   "matches": [
     {
       "profile": "stefan",
@@ -24,10 +24,10 @@
       "competition_id": "7090279",
       "team": "B",
       "team_label": "Valur U16 B",
-      "date": "2026-08-17",
-      "time": "17:00",
-      "status": "scheduled",
-      "score": null,
+      "date": "2026-08-16",
+      "time": null,
+      "status": "finished",
+      "score": "5-3",
       "home_team": "KA/KF/Dalvík",
       "away_team": "Valur/KH/Fálkar",
       "valur_is_home": false,
