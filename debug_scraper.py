@@ -7,7 +7,7 @@ import requests
 from scraper import block_aware_lines, BASE
 from bs4 import BeautifulSoup
  
-URL = f"{BASE}?id=7015358&banner-tab=matches-and-results"
+URL = f"{BASE}?id=7017126&banner-tab=matches-and-results"
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; ValurFixturesBot/1.0; personal non-commercial use)"}
  
 print(f"Fetching: {URL}")

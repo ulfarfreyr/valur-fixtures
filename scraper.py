@@ -82,7 +82,7 @@ COMPETITIONS = [
         "age_group": "U19",
         "team": "A",
         "label": "Valur U19 A",
-        "id": "7015358",
+        "id": "7017126",
     },
     {
         "profile": "jon",
@@ -90,7 +90,7 @@ COMPETITIONS = [
         "age_group": "U19",
         "team": "B",
         "label": "Valur U19 B",
-        "id": "7017555",
+        "id": "7017564",
     },
     {
         "profile": "stefan",
@@ -98,7 +98,7 @@ COMPETITIONS = [
         "age_group": "U16",
         "team": "A",
         "label": "Valur U16 A",
-        "id": "7019110",
+        "id": "7020033",
     },
     {
         "profile": "stefan",
