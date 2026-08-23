@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "generated_at": "2026-08-23T18:54:22.234554+00:00",
   "matches": [
     {
@@ -34,6 +35,11 @@
       "venue": "Fylkisvöllur"
     },
     {
+=======
+  "generated_at": "2026-08-23T06:36:23.577866+00:00",
+  "matches": [
+    {
+>>>>>>> 776212b5fbfa361d2638de2d7e2a63b4c034be6c
       "profile": "stefan",
       "profile_label": "Stefan",
       "age_group": "U16",
@@ -336,6 +342,7 @@
       "away_team": "ÍA/Kári",
       "valur_is_home": true,
       "venue": "Valsvöllur"
+<<<<<<< HEAD
     },
     {
       "profile": "jon",
@@ -448,6 +455,8 @@
       "away_team": "KA/Dalvík/KF/Hamrar 2",
       "valur_is_home": true,
       "venue": "Valsvöllur"
+=======
+>>>>>>> 776212b5fbfa361d2638de2d7e2a63b4c034be6c
     }
   ]
 }
