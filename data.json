@@ -1,38 +1,6 @@
 {
-  "generated_at": "2026-08-28T18:11:31.240740+00:00",
+  "generated_at": "2026-08-29T12:16:31.927125+00:00",
   "matches": [
-    {
-      "profile": "jon",
-      "profile_label": "Jon",
-      "age_group": "U19",
-      "competition_id": "7017564",
-      "team": "B",
-      "team_label": "Valur U19 B",
-      "date": "2026-08-07",
-      "time": null,
-      "status": "finished",
-      "score": "4-1",
-      "home_team": "ÍA/Kári/Skall/VíkingÓ 2",
-      "away_team": "Valur/KH/Fálkar 2",
-      "valur_is_home": false,
-      "venue": "Akraneshöllin"
-    },
-    {
-      "profile": "stefan",
-      "profile_label": "Stefan",
-      "age_group": "U16",
-      "competition_id": "7020033",
-      "team": "A",
-      "team_label": "Valur U16 A",
-      "date": "2026-08-07",
-      "time": null,
-      "status": "finished",
-      "score": "3-2",
-      "home_team": "Fylkir",
-      "away_team": "Valur/KH/Fálkar",
-      "valur_is_home": false,
-      "venue": "Fylkisvöllur"
-    },
     {
       "profile": "stefan",
       "profile_label": "Stefan",
