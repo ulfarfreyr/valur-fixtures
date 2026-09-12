@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T10:35:50.175598+00:00",
+  "generated_at": "2026-09-12T10:04:44.145224+00:00",
   "matches": [
     {
       "profile": "stefan",
@@ -153,9 +153,9 @@
       "team": "B",
       "team_label": "Valur U16 B",
       "date": "2026-09-11",
-      "time": "16:30",
-      "status": "scheduled",
-      "score": null,
+      "time": null,
+      "status": "finished",
+      "score": "3-4",
       "home_team": "Valur/KH/Fálkar",
       "away_team": "ÍA/Kári",
       "valur_is_home": true,
@@ -264,8 +264,8 @@
       "competition_id": "7017126",
       "team": "A",
       "team_label": "Valur U19 A",
-      "date": "2026-10-10",
-      "time": "14:00",
+      "date": "2026-10-09",
+      "time": "19:00",
       "status": "scheduled",
       "score": null,
       "home_team": "Selfoss/Árborg/Ægir/Stokkseyri",
