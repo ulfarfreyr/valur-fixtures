@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T11:59:04.346792+00:00",
+  "generated_at": "2026-09-22T10:58:06.083805+00:00",
   "matches": [
     {
       "profile": "jon",
@@ -181,6 +181,22 @@
       "profile": "jon",
       "profile_label": "Jon",
       "age_group": "U19",
+      "competition_id": "7017126",
+      "team": "A",
+      "team_label": "Valur U19 A",
+      "date": "2026-09-28",
+      "time": "19:00",
+      "status": "scheduled",
+      "score": null,
+      "home_team": "Selfoss/Árborg/Ægir/Stokkseyri",
+      "away_team": "Valur/KH/Fálkar",
+      "valur_is_home": false,
+      "venue": "JÁVERK-völlurinn"
+    },
+    {
+      "profile": "jon",
+      "profile_label": "Jon",
+      "age_group": "U19",
       "competition_id": "7017564",
       "team": "B",
       "team_label": "Valur U19 B",
@@ -208,22 +224,6 @@
       "away_team": "Njarðvík/Grindavík/Víðir",
       "valur_is_home": true,
       "venue": "Valsvöllur"
-    },
-    {
-      "profile": "jon",
-      "profile_label": "Jon",
-      "age_group": "U19",
-      "competition_id": "7017126",
-      "team": "A",
-      "team_label": "Valur U19 A",
-      "date": "2026-10-09",
-      "time": "19:00",
-      "status": "scheduled",
-      "score": null,
-      "home_team": "Selfoss/Árborg/Ægir/Stokkseyri",
-      "away_team": "Valur/KH/Fálkar",
-      "valur_is_home": false,
-      "venue": "JÁVERK-völlurinn"
     },
     {
       "profile": "jon",
