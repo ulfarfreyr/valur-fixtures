@@ -1,22 +1,6 @@
 {
-  "generated_at": "2026-09-22T10:58:06.083805+00:00",
+  "generated_at": "2026-09-23T10:45:40.743018+00:00",
   "matches": [
-    {
-      "profile": "jon",
-      "profile_label": "Jon",
-      "age_group": "U19",
-      "competition_id": "7017126",
-      "team": "A",
-      "team_label": "Valur U19 A",
-      "date": "2026-09-01",
-      "time": null,
-      "status": "finished",
-      "score": "2-1",
-      "home_team": "ÍR/Léttir",
-      "away_team": "Valur/KH/Fálkar",
-      "valur_is_home": false,
-      "venue": "Þarfaþingsvöllurinn"
-    },
     {
       "profile": "jon",
       "profile_label": "Jon",
