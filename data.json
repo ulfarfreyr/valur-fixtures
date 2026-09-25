@@ -1,22 +1,6 @@
 {
-  "generated_at": "2026-09-24T11:06:17.972178+00:00",
+  "generated_at": "2026-09-25T11:07:43.649959+00:00",
   "matches": [
-    {
-      "profile": "stefan",
-      "profile_label": "Stefan",
-      "age_group": "U16",
-      "competition_id": "7020033",
-      "team": "A",
-      "team_label": "Valur U16 A",
-      "date": "2026-09-03",
-      "time": null,
-      "status": "finished",
-      "score": "0-4",
-      "home_team": "Fram",
-      "away_team": "Valur/KH/Fálkar",
-      "valur_is_home": false,
-      "venue": "Lambhagavöllurinn"
-    },
     {
       "profile": "jon",
       "profile_label": "Jon",
