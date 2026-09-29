@@ -1,22 +1,6 @@
 {
-  "generated_at": "2026-09-28T12:53:51.449764+00:00",
+  "generated_at": "2026-09-29T12:07:09.576685+00:00",
   "matches": [
-    {
-      "profile": "jon",
-      "profile_label": "Jon",
-      "age_group": "U19",
-      "competition_id": "7017564",
-      "team": "B",
-      "team_label": "Valur U19 B",
-      "date": "2026-09-07",
-      "time": null,
-      "status": "finished",
-      "score": "1-1",
-      "home_team": "Fylkir/Elliði 2",
-      "away_team": "Valur/KH/Fálkar 2",
-      "valur_is_home": false,
-      "venue": "Fylkisvöllur"
-    },
     {
       "profile": "jon",
       "profile_label": "Jon",
@@ -137,9 +121,9 @@
       "team": "A",
       "team_label": "Valur U19 A",
       "date": "2026-09-28",
-      "time": "19:00",
-      "status": "scheduled",
-      "score": null,
+      "time": null,
+      "status": "finished",
+      "score": "1-3",
       "home_team": "Selfoss/Árborg/Ægir/Stokkseyri",
       "away_team": "Valur/KH/Fálkar",
       "valur_is_home": false,
