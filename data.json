@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T11:54:08.469869+00:00",
+  "generated_at": "2026-10-11T12:05:36.006058+00:00",
   "matches": [
     {
       "profile": "jon",
@@ -73,9 +73,9 @@
       "team": "B",
       "team_label": "Valur U19 B",
       "date": "2026-10-10",
-      "time": "17:00",
-      "status": "scheduled",
-      "score": null,
+      "time": null,
+      "status": "finished",
+      "score": "3-3",
       "home_team": "Valur/KH/Fálkar 2",
       "away_team": "KA/Dalvík/KF/Hamrar 2",
       "valur_is_home": true,
