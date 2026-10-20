@@ -1,22 +1,6 @@
 {
-  "generated_at": "2026-10-19T12:06:28.985308+00:00",
+  "generated_at": "2026-10-20T10:55:15.095882+00:00",
   "matches": [
-    {
-      "profile": "jon",
-      "profile_label": "Jon",
-      "age_group": "U19",
-      "competition_id": "7017126",
-      "team": "A",
-      "team_label": "Valur U19 A",
-      "date": "2026-09-28",
-      "time": null,
-      "status": "finished",
-      "score": "1-3",
-      "home_team": "Selfoss/Árborg/Ægir/Stokkseyri",
-      "away_team": "Valur/KH/Fálkar",
-      "valur_is_home": false,
-      "venue": "JÁVERK-völlurinn"
-    },
     {
       "profile": "jon",
       "profile_label": "Jon",
