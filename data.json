@@ -1,22 +1,6 @@
 {
-  "generated_at": "2026-10-28T12:06:02.227064+00:00",
+  "generated_at": "2026-10-29T12:16:51.490505+00:00",
   "matches": [
-    {
-      "profile": "jon",
-      "profile_label": "Jon",
-      "age_group": "U19",
-      "competition_id": "7017564",
-      "team": "B",
-      "team_label": "Valur U19 B",
-      "date": "2026-10-07",
-      "time": null,
-      "status": "finished",
-      "score": "3-3",
-      "home_team": "Valur/KH/Fálkar 2",
-      "away_team": "ÍBV/KFS",
-      "valur_is_home": true,
-      "venue": "Valsvöllur"
-    },
     {
       "profile": "jon",
       "profile_label": "Jon",
